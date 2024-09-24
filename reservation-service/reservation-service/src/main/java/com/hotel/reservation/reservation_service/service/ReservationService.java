@@ -2,20 +2,25 @@ package com.hotel.reservation.reservation_service.service;
 
 import com.hotel.reservation.reservation_service.entity.Reservation;
 import com.hotel.reservation.reservation_service.exception.NoDataFoundException;
-import com.hotel.reservation.reservation_service.model.HotelRoom;
-import com.hotel.reservation.reservation_service.model.Payment;
-import com.hotel.reservation.reservation_service.model.PaymentStatus;
-import com.hotel.reservation.reservation_service.model.PaymentType;
+import com.hotel.reservation.reservation_service.model.*;
 import com.hotel.reservation.reservation_service.repository.ReservationRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.serialization.Serde;
+import org.apache.kafka.common.serialization.Serializer;
+import org.apache.kafka.common.serialization.UUIDSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.DefaultKafkaProducerFactory;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.function.BiFunction;
 
 @Service
 @RequiredArgsConstructor
@@ -31,7 +36,13 @@ public class ReservationService {
 	@Autowired
 	private final PaymentService paymentService;
 
-	//private final Serde<NotificationContext> jsonSerde;
+	@Autowired
+	private final CustomerService customerService;
+
+	private final Serde<NotificationContext> jsonSerde;
+
+	@Value("${spring.cloud.stream.kafka.streams.binder.brokers}")
+	private String bootstrapServer;
 
 
 	public Reservation makeReservation(Reservation reservation) throws Exception {
@@ -58,7 +69,7 @@ public class ReservationService {
 				reservation.setPaymentId(payment.getPaymentId());
 				if (PaymentStatus.SUCCESS.equals(payment.getPaymentStatus())) {
 					reservation = reservationRepository.save(reservation);
-					//sendReservationNotification(reservation);
+					sendReservationNotification(reservation);
 					return reservation;
 				}
 			}
@@ -89,22 +100,29 @@ public class ReservationService {
 	private Payment initiatePaymentRefund(Long paymentId) {
 		return paymentService.processRefund(paymentId).block();
 	}
-/*
-	public void sendReservationNotification(Reservation reservation) {
-		Customer customer = customerClient.getCustomerByCustomerId(reservation.getCustomerId());
+
+	public void sendReservationNotification(Reservation reservation) throws NoDataFoundException {
+		Customer customer = customerService.getCustomerDetails(reservation.getCustomerId()).block();
 		if (customer != null) {
 			NotificationContext nc = new NotificationContext();
-			nc.setBody(String.format("""
-					Thanks for choosing us as your comfort partner.
-					You booking for room no %s is confirmed stating %s and ending %s.
-					Why don’t you follow us on [social media] as well?\n
-					-Great Comfort Hotels
-					""", reservation.getRoomId(), reservation.getStartDate(), reservation.getEndDate()));
+
+			String confirmationMessageTemplate = "Thanks for choosing us as your comfort partner.\n" +
+					"Your booking for room no %s is confirmed starting %s and ending %s.\n" +
+					"Why don’t you follow us on [social media] as well?\n" +
+					"-Great Comfort Hotels\n";
+
+			String confirmationMessage = String.format(confirmationMessageTemplate,
+					reservation.getRoomId(),
+					reservation.getStartDate(),
+					reservation.getEndDate()
+			);
+
+			nc.setBody(confirmationMessage);
 			nc.setType("email");
 			nc.setSeverity("Low");
 			nc.setCreatedAt(new Date());
 			Map<String, String> context = new HashMap<>();
-			context.put("to", customer.getEmailAddress());
+			context.put("to", customer.getEmail());
 			context.put("sub", String.format("Reservation Confirmed [#%s]", reservation.getReservationId()));
 			nc.setContext(context);
 			publishEventToNotificationTopic(nc);
@@ -115,8 +133,8 @@ public class ReservationService {
 		}
 	}
 
-	public void sendCancellationNotification(Reservation reservation) {
-		Customer customer = customerClient.getCustomerByCustomerId(reservation.getCustomerId());
+	public void sendCancellationNotification(Reservation reservation) throws NoDataFoundException {
+		Customer customer = customerService.getCustomerDetails(reservation.getCustomerId()).block();
 		if (customer != null) {
 			NotificationContext nc = new NotificationContext();
 			nc.setBody(String.format(
@@ -127,7 +145,7 @@ public class ReservationService {
 			nc.setSeverity("Low");
 			nc.setCreatedAt(new Date());
 			Map<String, String> context = new HashMap<>();
-			context.put("to", customer.getEmailAddress());
+			context.put("to", customer.getEmail());
 			context.put("sub", String.format("Reservation Cancellation [#%s]", reservation.getReservationId()));
 			nc.setContext(context);
 			publishEventToNotificationTopic(nc);
@@ -152,5 +170,5 @@ public class ReservationService {
 							ProducerConfig.BUFFER_MEMORY_CONFIG, 33554432, ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
 							UUIDSerializer.class, ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, orderSerde.getClass()));
 
-*/
+
 }
