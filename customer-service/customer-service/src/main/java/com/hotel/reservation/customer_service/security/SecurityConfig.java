@@ -27,6 +27,7 @@ public class SecurityConfig {
 
         return http.cors().and().csrf().disable().authorizeRequests().antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/actuator/prometheus").permitAll()
+                .antMatchers("/customers/**").permitAll()
                         .anyRequest().authenticated().and().httpBasic().and().build();
     }
     @Bean

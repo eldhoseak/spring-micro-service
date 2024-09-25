@@ -1,9 +1,8 @@
-package com.hotel.reservation.customer_service.security;
+package com.hotel.reservation.api_gateway.service;
 
-import com.hotel.reservation.customer_service.entity.Customer;
-import com.hotel.reservation.customer_service.repository.CustomerRepository;
+import com.hotel.reservation.api_gateway.entity.Customer;
+import com.hotel.reservation.api_gateway.repository.CustomerRepository;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
@@ -19,13 +18,11 @@ import java.util.Map;
 import java.util.function.Function;
 
 
-
 @Component
 public class JwtUtil {
 
     @Autowired
     private CustomerRepository customerRepository;
-
     private final String SECRET_KEY = "2132132143545221321321435452132132143545645765132132143545645765";
 
     public String extractUsername(String token) {
@@ -42,35 +39,26 @@ public class JwtUtil {
     }
 
     public Claims extractAllClaims(String token) {
-        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
+        return Jwts.parserBuilder()
+                .setSigningKey(getSignKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
     }
-
-
-    private Boolean isTokenExpired(String token) {
-        return extractExpiration(token).before(new Date());
-    }
-
-    public String generateToken(String username) {
-        Customer customer =  customerRepository.findByEmail(username);
-
-        Map<String, Object> claims = new HashMap<>();
-        claims.put("name", customer.getFirstName());
-        return createToken(claims, username);
-    }
-
-    private String createToken(Map<String, Object> claims, String subject) {
-        return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
-                .signWith(getSignKey(),SignatureAlgorithm.HS256).compact();
-    }
-
     private Key getSignKey(){
         byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public Boolean validateToken(String token, String username) {
+    private Boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(new Date());
+    }
+
+
+    public Boolean validateToken(String token) {
         final String extractedUsername = extractUsername(token);
-        return (extractedUsername.equals(username) && !isTokenExpired(token));
+
+        Customer customer =  customerRepository.findByEmail(extractedUsername);
+        return (customer != null && !isTokenExpired(token));
     }
 }
