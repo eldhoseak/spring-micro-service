@@ -6,21 +6,13 @@ import com.hotel.reservation.reservation_service.model.*;
 import com.hotel.reservation.reservation_service.repository.ReservationRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.common.serialization.Serde;
-import org.apache.kafka.common.serialization.Serializer;
-import org.apache.kafka.common.serialization.UUIDSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.kafka.core.DefaultKafkaProducerFactory;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-
+import com.google.gson.Gson;
 import java.math.BigDecimal;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
-import java.util.function.BiFunction;
 
 @Service
 @RequiredArgsConstructor
@@ -39,11 +31,8 @@ public class ReservationService {
 	@Autowired
 	private final CustomerService customerService;
 
-	private final Serde<NotificationContext> jsonSerde;
-
-	@Value("${spring.cloud.stream.kafka.streams.binder.brokers}")
-	private String bootstrapServer;
-
+	@Autowired
+	private KafkaService kafkaService;
 
 	public Reservation makeReservation(Reservation reservation) throws Exception {
 		HotelRoom hotelRoom = hotelService.getRoom(reservation.getRoomId()).block();
@@ -125,7 +114,8 @@ public class ReservationService {
 			context.put("to", customer.getEmail());
 			context.put("sub", String.format("Reservation Confirmed [#%s]", reservation.getReservationId()));
 			nc.setContext(context);
-			publishEventToNotificationTopic(nc);
+			Gson gson = new Gson();
+			kafkaService.sendMessage("notification-topic",gson.toJson(nc));
 		}
 		else {
 			throw new NoDataFoundException(
@@ -148,7 +138,8 @@ public class ReservationService {
 			context.put("to", customer.getEmail());
 			context.put("sub", String.format("Reservation Cancellation [#%s]", reservation.getReservationId()));
 			nc.setContext(context);
-			publishEventToNotificationTopic(nc);
+			Gson gson = new Gson();
+			kafkaService.sendMessage("notification-topic",gson.toJson(nc));
 		}
 		else {
 			throw new NoDataFoundException(
@@ -156,19 +147,6 @@ public class ReservationService {
 		}
 	}
 
-	private void publishEventToNotificationTopic(NotificationContext nc) {
-		KafkaTemplate kafkaTemplate = new KafkaTemplate<>(
-				orderJsonSerdeFactoryFunction.apply(jsonSerde.serializer(), bootstrapServer), true);
-		kafkaTemplate.setDefaultTopic("notificationProcessor");
-		kafkaTemplate.sendDefault(UUID.randomUUID(), nc);
-	}
-
-	BiFunction<Serializer<NotificationContext>, String, DefaultKafkaProducerFactory<UUID, NotificationContext>> orderJsonSerdeFactoryFunction = (
-			orderSerde, bootstrapServer) -> new DefaultKafkaProducerFactory<>(
-					Map.of(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer, ProducerConfig.RETRIES_CONFIG, 0,
-							ProducerConfig.BATCH_SIZE_CONFIG, 16384, ProducerConfig.LINGER_MS_CONFIG, 1,
-							ProducerConfig.BUFFER_MEMORY_CONFIG, 33554432, ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
-							UUIDSerializer.class, ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, orderSerde.getClass()));
 
 
 }

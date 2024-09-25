@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -20,8 +21,13 @@ public class ReservationController {
 	private final ReservationRepository reservationRepository;
 
 	@GetMapping("/{id}")
-	public Reservation getReservationById(@PathVariable Long id) {
-		return reservationRepository.getReferenceById(id);
+	public Reservation getReservationById(@PathVariable Long id) throws NoDataFoundException {
+		Optional<Reservation>  reservation = reservationRepository.findById(id);
+		if(reservation.isPresent()) {
+			return reservation.get();
+		}else {
+			throw new NoDataFoundException("Reservation not found");
+		}
 	}
 
 	@PostMapping("/make-reservation")

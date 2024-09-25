@@ -23,6 +23,7 @@ public class Notification implements Serializable {
 	@Column(name = "notification_Id")
 	Long notificationId;
 
+	@Column(length = 1000)
 	String message;
 
 	@Column(name = "create_date")

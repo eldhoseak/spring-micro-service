@@ -26,6 +26,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         return http.cors().and().csrf().disable().authorizeRequests().antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/actuator/prometheus").permitAll()
                         .anyRequest().authenticated().and().httpBasic().and().build();
     }
     @Bean

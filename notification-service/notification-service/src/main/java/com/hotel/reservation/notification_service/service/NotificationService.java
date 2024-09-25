@@ -30,7 +30,7 @@ public class NotificationService {
 		return notificationRepository.findByReferenceId(id);
 	}
 
-	public Notification add(@RequestBody Notification notification) {
+	public Notification add(Notification notification) {
 		return notificationRepository.save(notification);
 	}
 
