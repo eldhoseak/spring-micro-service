@@ -1,12 +1,12 @@
 package com.hotel.reservation.hotel_service.entity;
 
 import com.hotel.reservation.hotel_service.model.RoomType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 

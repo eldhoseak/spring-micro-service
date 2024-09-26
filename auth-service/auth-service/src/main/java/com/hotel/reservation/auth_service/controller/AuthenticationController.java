@@ -1,25 +1,21 @@
-package com.hotel.reservation.customer_service.controller;
+package com.hotel.reservation.auth_service.controller;
 
-import com.hotel.reservation.customer_service.entity.Customer;
-import com.hotel.reservation.customer_service.service.AuthenticationService;
-import com.hotel.reservation.customer_service.service.CustomerService;
+import com.hotel.reservation.auth_service.entity.Customer;
+import com.hotel.reservation.auth_service.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/auth")
 public class AuthenticationController {
-
-    @Autowired
-    private CustomerService customerService;
 
     @Autowired
     private AuthenticationService authenticationService;
 
     @PostMapping("/signup")
     public ResponseEntity<Customer> signup(@RequestBody Customer customer) {
-        return ResponseEntity.ok(customerService.save(customer));
+        return ResponseEntity.ok(authenticationService.save(customer));
     }
 
     @PostMapping("/login")

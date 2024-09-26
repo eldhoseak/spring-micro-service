@@ -1,9 +1,11 @@
-package com.hotel.reservation.api_gateway.entity;
+package com.hotel.reservation.auth_service.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+
 
 @Entity
 @Table(name = "customers")

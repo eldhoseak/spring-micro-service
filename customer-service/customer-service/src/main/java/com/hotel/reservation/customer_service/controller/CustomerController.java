@@ -26,8 +26,11 @@ public class CustomerController {
     @GetMapping("/{id}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable Long id) {
         Optional<Customer> customer = customerService.getCustomerById(id);
-        return customer.map(ResponseEntity::ok)
-                       .orElseGet(() -> ResponseEntity.notFound().build());
+        return customer.map(c -> {
+                    c.setPassword("");  
+                    return ResponseEntity.ok(c);
+                })
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     // Update customer details (partial update)

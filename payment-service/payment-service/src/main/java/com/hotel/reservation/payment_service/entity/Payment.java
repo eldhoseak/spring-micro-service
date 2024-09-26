@@ -3,12 +3,12 @@ package com.hotel.reservation.payment_service.entity;
 
 import com.hotel.reservation.payment_service.model.PaymentStatus;
 import com.hotel.reservation.payment_service.model.PaymentType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 

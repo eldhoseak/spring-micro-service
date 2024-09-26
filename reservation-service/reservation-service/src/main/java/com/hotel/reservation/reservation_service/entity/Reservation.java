@@ -1,12 +1,12 @@
 package com.hotel.reservation.reservation_service.entity;
 
 import com.hotel.reservation.reservation_service.model.PaymentStatus;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;

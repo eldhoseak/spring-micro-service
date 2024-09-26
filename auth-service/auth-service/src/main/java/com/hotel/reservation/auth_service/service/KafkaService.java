@@ -1,9 +1,8 @@
-package com.hotel.reservation.customer_service.service;
+package com.hotel.reservation.auth_service.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-import org.apache.kafka.clients.producer.ProducerRecord;
 
 @Service
 @RequiredArgsConstructor

@@ -1,7 +1,7 @@
-package com.hotel.reservation.customer_service.service;
+package com.hotel.reservation.auth_service.service;
 
-import com.hotel.reservation.customer_service.entity.Customer;
-import com.hotel.reservation.customer_service.repository.CustomerRepository;
+import com.hotel.reservation.auth_service.entity.Customer;
+import com.hotel.reservation.auth_service.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

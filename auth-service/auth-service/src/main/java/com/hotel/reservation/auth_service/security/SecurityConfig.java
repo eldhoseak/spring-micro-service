@@ -1,6 +1,6 @@
-package com.hotel.reservation.customer_service.security;
+package com.hotel.reservation.auth_service.security;
 
-import com.hotel.reservation.customer_service.service.MyUserDetailsService;
+import com.hotel.reservation.auth_service.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.
         annotation.Bean;
@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -24,12 +25,19 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
-        return http.cors().and().csrf().disable().authorizeRequests().antMatchers("/api/auth/**").permitAll()
-                .antMatchers("/actuator/prometheus").permitAll()
-                .antMatchers("/customers/**").permitAll()
-                        .anyRequest().authenticated().and().httpBasic().and().build();
+        return http.cors().and()
+                .csrf().disable()
+                .authorizeHttpRequests(authorizeRequests ->
+                        authorizeRequests
+                                .requestMatchers("/auth/**").permitAll()
+                                .requestMatchers("/auth-service/v3/api-docs").permitAll()
+                                .requestMatchers("/actuator/prometheus").permitAll()
+                                .anyRequest().authenticated()
+                )
+                .httpBasic(Customizer.withDefaults())
+                .build();
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();

@@ -1,15 +1,14 @@
-package com.hotel.reservation.customer_service.service;
+package com.hotel.reservation.auth_service.service;
 
 import com.google.gson.Gson;
-import com.hotel.reservation.customer_service.entity.Customer;
-import com.hotel.reservation.customer_service.model.NotificationContext;
-import com.hotel.reservation.customer_service.repository.CustomerRepository;
-import com.hotel.reservation.customer_service.security.JwtUtil;
+import com.hotel.reservation.auth_service.entity.Customer;
+import com.hotel.reservation.auth_service.model.NotificationContext;
+import com.hotel.reservation.auth_service.repository.CustomerRepository;
+import com.hotel.reservation.auth_service.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -26,9 +25,6 @@ public class AuthenticationService {
 
     @Autowired
     private JwtUtil jwtUtil;
-
-    @Autowired
-    private UserDetailsService userDetailsService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -50,7 +46,7 @@ public class AuthenticationService {
     }
 
 
-    public Customer save(Customer customer) {
+    public Customer save1(Customer customer) {
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         customer =  customerRepository.save(customer);
         sendRegistrationNotification(customer);
@@ -83,5 +79,8 @@ public class AuthenticationService {
 
         Gson gson = new Gson();
         kafkaService.sendMessage("notification-topic",gson.toJson(nc));
+    }
+    public Customer save(Customer customer) {
+        return customerRepository.save(customer);
     }
 }
