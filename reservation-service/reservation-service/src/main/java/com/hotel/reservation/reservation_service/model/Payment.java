@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -14,14 +13,14 @@ import java.util.UUID;
 @Builder
 public class Payment {
 
-	private Long paymentId;
+    private Long paymentId;
 
-	private Long customerId;
+    private Long customerId;
 
-	private BigDecimal amount;
+    private BigDecimal amount;
 
-	private PaymentStatus paymentStatus;
+    private PaymentStatus paymentStatus;
 
-	private PaymentType paymentType;
+    private PaymentType paymentType;
 
 }

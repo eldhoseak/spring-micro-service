@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -48,7 +47,7 @@ public class AuthenticationService {
 
     public Customer save1(Customer customer) {
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
-        customer =  customerRepository.save(customer);
+        customer = customerRepository.save(customer);
         sendRegistrationNotification(customer);
         return customer;
     }
@@ -65,7 +64,7 @@ public class AuthenticationService {
                 "-Great Comfort Hotels\n";
 
         String confirmationMessage = String.format(confirmationMessageTemplate,
-                customer.getFirstName() +" "+ customer.getLastName()
+                customer.getFirstName() + " " + customer.getLastName()
         );
 
         nc.setBody(confirmationMessage);
@@ -78,8 +77,9 @@ public class AuthenticationService {
         nc.setContext(context);
 
         Gson gson = new Gson();
-        kafkaService.sendMessage("notification-topic",gson.toJson(nc));
+        kafkaService.sendMessage("notification-topic", gson.toJson(nc));
     }
+
     public Customer save(Customer customer) {
         return customerRepository.save(customer);
     }

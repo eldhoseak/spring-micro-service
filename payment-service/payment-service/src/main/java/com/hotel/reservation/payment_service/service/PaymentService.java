@@ -16,36 +16,34 @@ import java.util.Random;
 @Slf4j
 public class PaymentService {
 
-	private final PaymentRepository paymentRepository;
+    private final PaymentRepository paymentRepository;
 
-	public Payment pay(Payment payment) {
-		payment.setPaymentType(PaymentType.PAY);
-		payment.setPaymentStatus(PaymentStatus.FAILED);
-		if (isSuccessful()) {
-			payment.setPaymentStatus(PaymentStatus.SUCCESS);
-		}
-		else {
-			payment.setPaymentStatus(PaymentStatus.FAILED);
-		}
-		return paymentRepository.save(payment);
-	}
+    public Payment pay(Payment payment) {
+        payment.setPaymentType(PaymentType.PAY);
+        payment.setPaymentStatus(PaymentStatus.FAILED);
+        if (isSuccessful()) {
+            payment.setPaymentStatus(PaymentStatus.SUCCESS);
+        } else {
+            payment.setPaymentStatus(PaymentStatus.FAILED);
+        }
+        return paymentRepository.save(payment);
+    }
 
 
-	public Payment refund(Long paymentId) throws NoDataFoundException {
-		Payment payment = paymentRepository.getReferenceById(paymentId);
-		if (payment != null) {
-			payment.setPaymentType(PaymentType.REFUND);
-			return paymentRepository.save(payment);
-		}
-		else {
-			throw new NoDataFoundException(String.format("Payment Refund failed as payment reference %s is not found",
-					payment.getPaymentId()));
-		}
-	}
+    public Payment refund(Long paymentId) throws NoDataFoundException {
+        Payment payment = paymentRepository.getReferenceById(paymentId);
+        if (payment != null) {
+            payment.setPaymentType(PaymentType.REFUND);
+            return paymentRepository.save(payment);
+        } else {
+            throw new NoDataFoundException(String.format("Payment Refund failed as payment reference %s is not found",
+                    paymentId));
+        }
+    }
 
-	public boolean isSuccessful() {
-		Random random = new Random();
-		return random.nextBoolean();
-	}
+    public boolean isSuccessful() {
+        Random random = new Random();
+        return random.nextBoolean();
+    }
 
 }

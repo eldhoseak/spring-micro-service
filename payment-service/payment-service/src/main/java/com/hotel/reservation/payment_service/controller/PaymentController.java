@@ -7,25 +7,23 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
-
 @RestController
 @RequestMapping("payments")
 @RequiredArgsConstructor
 public class PaymentController {
 
-	@Autowired
-	private final PaymentService paymentService;
+    @Autowired
+    private final PaymentService paymentService;
 
-	@PostMapping("/pay")
-	public Payment processPayment(@RequestBody Payment payment) {
-		payment.setPaymentId(null);
-		return paymentService.pay(payment);
-	}
+    @PostMapping("/pay")
+    public Payment processPayment(@RequestBody Payment payment) {
+        payment.setPaymentId(null);
+        return paymentService.pay(payment);
+    }
 
-	@PostMapping("/refund/{paymentId}")
-	public Payment processRefund(@PathVariable("paymentId") Long paymentId) throws NoDataFoundException {
-		return paymentService.refund(paymentId);
-	}
+    @PostMapping("/refund/{paymentId}")
+    public Payment processRefund(@PathVariable("paymentId") Long paymentId) throws NoDataFoundException {
+        return paymentService.refund(paymentId);
+    }
 
 }

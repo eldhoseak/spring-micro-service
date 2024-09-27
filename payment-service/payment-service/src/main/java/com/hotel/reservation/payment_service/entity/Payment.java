@@ -20,23 +20,23 @@ import java.math.BigDecimal;
 @Table(name = "PAYMENTS")
 public class Payment implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "payment_Id")
-	private Long paymentId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "payment_Id")
+    private Long paymentId;
 
-	@Column(name = "customer_Id")
-	private Long customerId;
+    @Column(name = "customer_Id")
+    private Long customerId;
 
-	@Column(nullable = false)
-	private BigDecimal amount;
+    @Column(nullable = false)
+    private BigDecimal amount;
 
-	@Column(name = "payment_status")
-	@Enumerated(EnumType.STRING)
-	private PaymentStatus paymentStatus;
+    @Column(name = "payment_status")
+    @Enumerated(EnumType.STRING)
+    private PaymentStatus paymentStatus;
 
-	@Column(name = "payment_type")
-	@Enumerated(EnumType.STRING)
-	private PaymentType paymentType;
+    @Column(name = "payment_type")
+    @Enumerated(EnumType.STRING)
+    private PaymentType paymentType;
 
 }

@@ -1,8 +1,9 @@
 package com.hotel.reservation.reservation_service.service;
 
 import com.hotel.reservation.reservation_service.model.Customer;
-import com.hotel.reservation.reservation_service.model.HotelRoom;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -12,8 +13,9 @@ public class CustomerService {
 
     private final WebClient webClient;
 
-    public CustomerService(WebClient.Builder webClientBuilder) {
-        this.webClient = webClientBuilder.baseUrl("http://localhost:9003").build();
+    @Autowired
+    public CustomerService(@LoadBalanced WebClient.Builder webClientBuilder) {
+        this.webClient = webClientBuilder.baseUrl("http://customer-service").build();
     }
 
     @CircuitBreaker(name = "customerServiceCircuitBreaker", fallbackMethod = "fallbackGetCustomerDetails")
@@ -24,7 +26,7 @@ public class CustomerService {
                 .bodyToMono(Customer.class);
     }
 
-    public Mono<Customer>fallbackGetCustomerDetails(Throwable t) {
+    public Mono<Customer> fallbackGetCustomerDetails(Throwable t) {
         Customer customer = new Customer();
         customer.setId((long) -1);
         return Mono.just(customer);

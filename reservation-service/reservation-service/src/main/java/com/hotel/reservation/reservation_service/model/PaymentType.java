@@ -5,12 +5,12 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public enum PaymentType {
 
-	PAY("PAY"), REFUND("REFUND");
+    PAY("PAY"), REFUND("REFUND");
 
-	private final String name;
+    private final String name;
 
-	public String toString() {
-		return this.name;
-	}
+    public String toString() {
+        return this.name;
+    }
 
 }

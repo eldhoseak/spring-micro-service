@@ -8,7 +8,6 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Service
@@ -26,9 +25,9 @@ public class NotificationKafkaService {
 
     private void processNotification(String message) {
 
-        Gson gson = new  Gson();
+        Gson gson = new Gson();
         NotificationContext context = gson.fromJson(message, NotificationContext.class);
-        notificationService.sendSimpleEmail(context.getContext().get("to"),context.getContext().get("sub"),context.getBody());
+        notificationService.sendSimpleEmail(context.getContext().get("to"), context.getContext().get("sub"), context.getBody());
         Notification notification = new Notification();
         notification.setMessage(message);
         notification.setReferenceId(UUID.randomUUID());

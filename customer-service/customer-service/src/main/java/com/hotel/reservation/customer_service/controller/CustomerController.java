@@ -27,7 +27,7 @@ public class CustomerController {
     public ResponseEntity<Customer> getCustomerById(@PathVariable Long id) {
         Optional<Customer> customer = customerService.getCustomerById(id);
         return customer.map(c -> {
-                    c.setPassword("");  
+                    c.setPassword("");
                     return ResponseEntity.ok(c);
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
@@ -38,6 +38,6 @@ public class CustomerController {
     public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer customerDetails) {
         Optional<Customer> updatedCustomer = customerService.updateCustomer(id, customerDetails);
         return updatedCustomer.map(ResponseEntity::ok)
-                              .orElseGet(() -> ResponseEntity.notFound().build());
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 }

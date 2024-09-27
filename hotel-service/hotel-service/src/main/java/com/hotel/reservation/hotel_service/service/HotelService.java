@@ -1,6 +1,7 @@
 package com.hotel.reservation.hotel_service.service;
 
 import com.hotel.reservation.hotel_service.entity.HotelRoom;
+import com.hotel.reservation.hotel_service.exception.NoDataFoundException;
 import com.hotel.reservation.hotel_service.repository.HotelRoomRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,11 +19,17 @@ public class HotelService {
 	private HotelRoomRepository hotelRoomRepository;
 
 	public List<HotelRoom> getAllRooms() {
-		return hotelRoomRepository.findAll();
+		log.debug("Fetching all hotel rooms.");
+		List<HotelRoom> rooms = hotelRoomRepository.findAll();
+		log.debug("Returning {} hotel rooms.", rooms.size());
+		return rooms;
 	}
 
-	public HotelRoom getRoomDetails(Long roomId) {
+	public HotelRoom getRoomDetails(Long roomId) throws NoDataFoundException {
+		log.debug("Fetching details for room id: {}", roomId);
 		Optional<HotelRoom> roomDetails = hotelRoomRepository.findById(roomId);
-		return roomDetails.orElse(null);
+		HotelRoom room = roomDetails.orElseThrow(() -> new NoDataFoundException("Invalid room id"));
+		log.debug("Returning details for room id: {}", roomId);
+		return room;
 	}
 }

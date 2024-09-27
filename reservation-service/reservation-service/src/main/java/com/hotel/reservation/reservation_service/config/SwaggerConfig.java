@@ -12,28 +12,28 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @OpenAPIDefinition(
-		info = @io.swagger.v3.oas.annotations.info.Info(title = "Payment Service",
-				version = "1.0",
-				description = "Documentation Payment Service v1.0"),
-		security = @SecurityRequirement(name = "bearerAuth"),
-		servers = @io.swagger.v3.oas.annotations.servers.Server(url = "http://localhost:8080")
+        info = @io.swagger.v3.oas.annotations.info.Info(title = "Payment Service",
+                version = "1.0",
+                description = "Documentation Payment Service v1.0"),
+        security = @SecurityRequirement(name = "bearerAuth"),
+        servers = @io.swagger.v3.oas.annotations.servers.Server(url = "http://localhost:8080")
 )
 @SecurityScheme(
-		name = "bearerAuth",
-		type = SecuritySchemeType.HTTP,
-		scheme = "bearer",
-		bearerFormat = "JWT"
+        name = "bearerAuth",
+        type = SecuritySchemeType.HTTP,
+        scheme = "bearer",
+        bearerFormat = "JWT"
 )
 @Configuration
 public class SwaggerConfig {
 
-	@Value("${spring.application.name}")
-	String appName;
+    @Value("${spring.application.name}")
+    String appName;
 
-	@Bean
-	public OpenAPI api() {
-		return new OpenAPI().info(new Info().title(appName).description(appName).version("1.0.0"))
-			.addServersItem(new Server().url("/"));
-	}
+    @Bean
+    public OpenAPI api() {
+        return new OpenAPI().info(new Info().title(appName).description(appName).version("1.0.0"))
+                .addServersItem(new Server().url("/"));
+    }
 
 }

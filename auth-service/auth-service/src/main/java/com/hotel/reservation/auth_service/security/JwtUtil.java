@@ -17,7 +17,6 @@ import java.util.Map;
 import java.util.function.Function;
 
 
-
 @Component
 public class JwtUtil {
 
@@ -49,7 +48,7 @@ public class JwtUtil {
     }
 
     public String generateToken(String username) {
-        Customer customer =  customerRepository.findByEmail(username);
+        Customer customer = customerRepository.findByEmail(username);
 
         Map<String, Object> claims = new HashMap<>();
         claims.put("name", customer.getFirstName());
@@ -59,10 +58,10 @@ public class JwtUtil {
     private String createToken(Map<String, Object> claims, String subject) {
         return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
-                .signWith(getSignKey(),SignatureAlgorithm.HS256).compact();
+                .signWith(getSignKey(), SignatureAlgorithm.HS256).compact();
     }
 
-    private Key getSignKey(){
+    private Key getSignKey() {
         byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
         return Keys.hmacShaKeyFor(keyBytes);
     }
