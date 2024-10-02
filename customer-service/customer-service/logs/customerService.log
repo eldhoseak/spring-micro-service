@@ -1,0 +1,190 @@
+2024-10-01 18:06:40 [main] INFO  c.h.r.c.CustomerServiceApplication - Starting CustomerServiceApplication using Java 17.0.12 with PID 2732 (F:\HotelReservation\customer-service\customer-service\target\classes started by user in F:\HotelReservation\customer-service\customer-service)
+2024-10-01 18:06:40 [main] INFO  c.h.r.c.CustomerServiceApplication - Starting CustomerServiceApplication using Java 17.0.12 with PID 2732 (F:\HotelReservation\customer-service\customer-service\target\classes started by user in F:\HotelReservation\customer-service\customer-service)
+2024-10-01 18:06:40 [main] DEBUG c.h.r.c.CustomerServiceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2024-10-01 18:06:40 [main] DEBUG c.h.r.c.CustomerServiceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2024-10-01 18:06:40 [main] INFO  c.h.r.c.CustomerServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 18:06:40 [main] INFO  c.h.r.c.CustomerServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 18:06:49 [main] INFO  c.h.r.c.CustomerServiceApplication - Started CustomerServiceApplication in 12.026 seconds (process running for 13.388)
+2024-10-01 18:06:49 [main] INFO  c.h.r.c.CustomerServiceApplication - Started CustomerServiceApplication in 12.026 seconds (process running for 13.388)
+2024-10-01 18:07:35 [http-nio-9002-exec-2] DEBUG c.h.r.c.service.CustomerService - Fetching all customers.
+2024-10-01 18:07:35 [http-nio-9002-exec-2] DEBUG c.h.r.c.service.CustomerService - Fetching all customers.
+2024-10-01 18:07:35 [http-nio-9002-exec-2] DEBUG c.h.r.c.service.CustomerService - Returning 1 customers.
+2024-10-01 18:07:35 [http-nio-9002-exec-2] DEBUG c.h.r.c.service.CustomerService - Returning 1 customers.
+2024-10-01 18:42:24 [main] INFO  c.h.r.c.c.CustomerControllerTest - Starting CustomerControllerTest using Java 17.0.12 with PID 11132 (started by user in F:\HotelReservation\customer-service\customer-service)
+2024-10-01 18:42:24 [main] INFO  c.h.r.c.c.CustomerControllerTest - Starting CustomerControllerTest using Java 17.0.12 with PID 11132 (started by user in F:\HotelReservation\customer-service\customer-service)
+2024-10-01 18:42:24 [main] DEBUG c.h.r.c.c.CustomerControllerTest - Running with Spring Boot v3.2.3, Spring v6.1.4
+2024-10-01 18:42:24 [main] DEBUG c.h.r.c.c.CustomerControllerTest - Running with Spring Boot v3.2.3, Spring v6.1.4
+2024-10-01 18:42:24 [main] INFO  c.h.r.c.c.CustomerControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 18:42:24 [main] INFO  c.h.r.c.c.CustomerControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 18:42:29 [main] INFO  c.h.r.c.c.CustomerControllerTest - Started CustomerControllerTest in 7.138 seconds (process running for 10.125)
+2024-10-01 18:42:29 [main] INFO  c.h.r.c.c.CustomerControllerTest - Started CustomerControllerTest in 7.138 seconds (process running for 10.125)
+2024-10-01 18:42:29 [main] DEBUG c.h.r.c.c.CustomerController - Fetching customer with ID: 1
+2024-10-01 18:42:29 [main] DEBUG c.h.r.c.c.CustomerController - Fetching customer with ID: 1
+2024-10-01 18:42:29 [main] DEBUG c.h.r.c.c.CustomerController - Fetching customer with ID: 1
+2024-10-01 18:42:29 [main] DEBUG c.h.r.c.c.CustomerController - Fetching customer with ID: 1
+2024-10-01 18:42:31 [main] INFO  c.h.r.c.CustomerServiceApplicationTests - Starting CustomerServiceApplicationTests using Java 17.0.12 with PID 11132 (started by user in F:\HotelReservation\customer-service\customer-service)
+2024-10-01 18:42:31 [main] INFO  c.h.r.c.CustomerServiceApplicationTests - Starting CustomerServiceApplicationTests using Java 17.0.12 with PID 11132 (started by user in F:\HotelReservation\customer-service\customer-service)
+2024-10-01 18:42:31 [main] DEBUG c.h.r.c.CustomerServiceApplicationTests - Running with Spring Boot v3.2.3, Spring v6.1.4
+2024-10-01 18:42:31 [main] DEBUG c.h.r.c.CustomerServiceApplicationTests - Running with Spring Boot v3.2.3, Spring v6.1.4
+2024-10-01 18:42:31 [main] INFO  c.h.r.c.CustomerServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 18:42:31 [main] INFO  c.h.r.c.CustomerServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 18:42:42 [main] INFO  c.h.r.c.CustomerServiceApplicationTests - Started CustomerServiceApplicationTests in 12.221 seconds (process running for 22.801)
+2024-10-01 18:42:42 [main] INFO  c.h.r.c.CustomerServiceApplicationTests - Started CustomerServiceApplicationTests in 12.221 seconds (process running for 22.801)
+2024-10-01 18:42:42 [main] DEBUG c.h.r.c.service.CustomerService - Updating details for customer id: 1
+2024-10-01 18:42:42 [main] DEBUG c.h.r.c.service.CustomerService - Updating details for customer id: 1
+2024-10-01 18:43:50 [main] INFO  c.h.r.c.CustomerServiceApplication - Starting CustomerServiceApplication using Java 17.0.12 with PID 15940 (F:\HotelReservation\customer-service\customer-service\target\classes started by user in F:\HotelReservation\customer-service\customer-service)
+2024-10-01 18:43:50 [main] INFO  c.h.r.c.CustomerServiceApplication - Starting CustomerServiceApplication using Java 17.0.12 with PID 15940 (F:\HotelReservation\customer-service\customer-service\target\classes started by user in F:\HotelReservation\customer-service\customer-service)
+2024-10-01 18:43:50 [main] DEBUG c.h.r.c.CustomerServiceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2024-10-01 18:43:50 [main] DEBUG c.h.r.c.CustomerServiceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2024-10-01 18:43:50 [main] INFO  c.h.r.c.CustomerServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 18:43:50 [main] INFO  c.h.r.c.CustomerServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 18:43:58 [main] INFO  c.h.r.c.CustomerServiceApplication - Started CustomerServiceApplication in 11.335 seconds (process running for 12.803)
+2024-10-01 18:43:58 [main] INFO  c.h.r.c.CustomerServiceApplication - Started CustomerServiceApplication in 11.335 seconds (process running for 12.803)
+2024-10-01 18:44:14 [http-nio-9002-exec-2] DEBUG c.h.r.c.service.CustomerService - Fetching all customers.
+2024-10-01 18:44:14 [http-nio-9002-exec-2] DEBUG c.h.r.c.service.CustomerService - Fetching all customers.
+2024-10-01 18:44:15 [http-nio-9002-exec-2] DEBUG c.h.r.c.service.CustomerService - Returning 1 customers.
+2024-10-01 18:44:15 [http-nio-9002-exec-2] DEBUG c.h.r.c.service.CustomerService - Returning 1 customers.
+2024-10-01 18:51:22 [http-nio-9002-exec-4] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@example.com
+2024-10-01 18:51:22 [http-nio-9002-exec-4] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@example.com
+2024-10-01 18:52:14 [http-nio-9002-exec-5] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@example.com
+2024-10-01 18:52:14 [http-nio-9002-exec-5] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@example.com
+2024-10-01 18:53:29 [http-nio-9002-exec-9] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@example.com
+2024-10-01 18:53:29 [http-nio-9002-exec-9] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@example.com
+2024-10-01 18:55:13 [http-nio-9002-exec-2] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@example.com
+2024-10-01 18:55:13 [http-nio-9002-exec-2] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@example.com
+2024-10-01 18:56:49 [http-nio-9002-exec-4] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@example.com
+2024-10-01 18:56:49 [http-nio-9002-exec-4] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@example.com
+2024-10-01 18:59:45 [main] INFO  c.h.r.c.CustomerServiceApplication - Starting CustomerServiceApplication using Java 17.0.12 with PID 5172 (F:\HotelReservation\customer-service\customer-service\target\classes started by user in F:\HotelReservation\customer-service\customer-service)
+2024-10-01 18:59:45 [main] INFO  c.h.r.c.CustomerServiceApplication - Starting CustomerServiceApplication using Java 17.0.12 with PID 5172 (F:\HotelReservation\customer-service\customer-service\target\classes started by user in F:\HotelReservation\customer-service\customer-service)
+2024-10-01 18:59:46 [main] DEBUG c.h.r.c.CustomerServiceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2024-10-01 18:59:46 [main] DEBUG c.h.r.c.CustomerServiceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2024-10-01 18:59:46 [main] INFO  c.h.r.c.CustomerServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 18:59:46 [main] INFO  c.h.r.c.CustomerServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 18:59:56 [main] INFO  c.h.r.c.CustomerServiceApplication - Started CustomerServiceApplication in 12.88 seconds (process running for 14.536)
+2024-10-01 18:59:56 [main] INFO  c.h.r.c.CustomerServiceApplication - Started CustomerServiceApplication in 12.88 seconds (process running for 14.536)
+2024-10-01 19:01:29 [http-nio-9002-exec-2] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@example.com
+2024-10-01 19:01:29 [http-nio-9002-exec-2] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@example.com
+2024-10-01 19:03:29 [http-nio-9002-exec-1] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@mailinator.com
+2024-10-01 19:03:29 [http-nio-9002-exec-1] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@mailinator.com
+2024-10-01 19:04:41 [http-nio-9002-exec-4] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@mailinator.com
+2024-10-01 19:04:41 [http-nio-9002-exec-4] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@mailinator.com
+2024-10-01 19:05:40 [main] INFO  c.h.r.c.CustomerServiceApplication - Starting CustomerServiceApplication using Java 17.0.12 with PID 14084 (F:\HotelReservation\customer-service\customer-service\target\classes started by user in F:\HotelReservation\customer-service\customer-service)
+2024-10-01 19:05:40 [main] INFO  c.h.r.c.CustomerServiceApplication - Starting CustomerServiceApplication using Java 17.0.12 with PID 14084 (F:\HotelReservation\customer-service\customer-service\target\classes started by user in F:\HotelReservation\customer-service\customer-service)
+2024-10-01 19:05:40 [main] DEBUG c.h.r.c.CustomerServiceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2024-10-01 19:05:40 [main] DEBUG c.h.r.c.CustomerServiceApplication - Running with Spring Boot v3.2.3, Spring v6.1.4
+2024-10-01 19:05:40 [main] INFO  c.h.r.c.CustomerServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 19:05:40 [main] INFO  c.h.r.c.CustomerServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-01 19:05:48 [main] INFO  c.h.r.c.CustomerServiceApplication - Started CustomerServiceApplication in 10.413 seconds (process running for 11.642)
+2024-10-01 19:05:48 [main] INFO  c.h.r.c.CustomerServiceApplication - Started CustomerServiceApplication in 10.413 seconds (process running for 11.642)
+2024-10-01 19:06:29 [http-nio-9002-exec-1] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@mailinator.com
+2024-10-01 19:06:29 [http-nio-9002-exec-1] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@mailinator.com
+2024-10-01 19:06:32 [http-nio-9002-exec-2] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@mailinator.com
+2024-10-01 19:06:32 [http-nio-9002-exec-2] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@mailinator.com
+2024-10-01 19:06:44 [http-nio-9002-exec-3] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@mailinator.com
+2024-10-01 19:06:44 [http-nio-9002-exec-3] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@mailinator.com
+2024-10-01 19:06:49 [http-nio-9002-exec-4] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@mailinator.com
+2024-10-01 19:06:49 [http-nio-9002-exec-4] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: john.doe@mailinator.com
+2024-10-01 19:10:48 [http-nio-9002-exec-6] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 19:10:48 [http-nio-9002-exec-6] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 19:10:48 [http-nio-9002-exec-6] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 19:10:48 [http-nio-9002-exec-6] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:03:51 [http-nio-9002-exec-6] DEBUG c.h.r.c.service.CustomerService - Fetching all customers.
+2024-10-01 20:03:51 [http-nio-9002-exec-6] DEBUG c.h.r.c.service.CustomerService - Fetching all customers.
+2024-10-01 20:03:51 [http-nio-9002-exec-6] DEBUG c.h.r.c.service.CustomerService - Returning 1 customers.
+2024-10-01 20:03:51 [http-nio-9002-exec-6] DEBUG c.h.r.c.service.CustomerService - Returning 1 customers.
+2024-10-01 20:09:56 [http-nio-9002-exec-8] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 20:09:56 [http-nio-9002-exec-8] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 20:09:56 [http-nio-9002-exec-8] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:09:56 [http-nio-9002-exec-8] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:22:16 [http-nio-9002-exec-10] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 20:22:16 [http-nio-9002-exec-10] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 20:22:16 [http-nio-9002-exec-10] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:22:16 [http-nio-9002-exec-10] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:25:16 [http-nio-9002-exec-2] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 20:25:16 [http-nio-9002-exec-2] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 20:25:16 [http-nio-9002-exec-2] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:25:16 [http-nio-9002-exec-2] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:30:15 [http-nio-9002-exec-4] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 20:30:15 [http-nio-9002-exec-4] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 20:30:15 [http-nio-9002-exec-4] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:30:15 [http-nio-9002-exec-4] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:33:51 [http-nio-9002-exec-6] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 20:33:51 [http-nio-9002-exec-6] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 20:33:51 [http-nio-9002-exec-6] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:33:51 [http-nio-9002-exec-6] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:37:32 [http-nio-9002-exec-8] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 20:37:32 [http-nio-9002-exec-8] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 20:37:32 [http-nio-9002-exec-8] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:37:32 [http-nio-9002-exec-8] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:45:02 [http-nio-9002-exec-10] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 20:45:02 [http-nio-9002-exec-10] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 20:45:02 [http-nio-9002-exec-10] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:45:02 [http-nio-9002-exec-10] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 20:47:02 [http-nio-9002-exec-2] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: eldhose@mailinator.com
+2024-10-01 20:47:02 [http-nio-9002-exec-2] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: eldhose@mailinator.com
+2024-10-01 20:47:02 [http-nio-9002-exec-3] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: eldhose@mailinator.com
+2024-10-01 20:47:02 [http-nio-9002-exec-3] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: eldhose@mailinator.com
+2024-10-01 20:49:51 [http-nio-9002-exec-5] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: eldhose@mailinator.com
+2024-10-01 20:49:51 [http-nio-9002-exec-5] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: eldhose@mailinator.com
+2024-10-01 20:49:51 [http-nio-9002-exec-6] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: eldhose@mailinator.com
+2024-10-01 20:49:51 [http-nio-9002-exec-6] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: eldhose@mailinator.com
+2024-10-01 20:53:02 [http-nio-9002-exec-8] DEBUG c.h.r.c.c.CustomerController - Fetching customer with ID: 15
+2024-10-01 20:53:02 [http-nio-9002-exec-8] DEBUG c.h.r.c.c.CustomerController - Fetching customer with ID: 15
+2024-10-01 21:41:31 [http-nio-9002-exec-10] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 21:41:31 [http-nio-9002-exec-10] DEBUG c.h.r.c.c.CustomerController - Saving customer details :
+2024-10-01 21:41:31 [http-nio-9002-exec-10] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 21:41:31 [http-nio-9002-exec-10] DEBUG c.h.r.c.service.CustomerService - Saving details for customer 
+2024-10-01 21:43:15 [http-nio-9002-exec-2] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: eldhose@mailinator.com
+2024-10-01 21:43:15 [http-nio-9002-exec-2] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: eldhose@mailinator.com
+2024-10-01 21:43:15 [http-nio-9002-exec-3] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: eldhose@mailinator.com
+2024-10-01 21:43:15 [http-nio-9002-exec-3] DEBUG c.h.r.c.c.CustomerController - Fetching customer with email: eldhose@mailinator.com
+2024-10-01 21:44:39 [http-nio-9002-exec-5] DEBUG c.h.r.c.c.CustomerController - Fetching customer with ID: 16
+2024-10-01 21:44:39 [http-nio-9002-exec-5] DEBUG c.h.r.c.c.CustomerController - Fetching customer with ID: 16
+2024-10-01 21:46:57 [DiscoveryClient-HeartbeatExecutor-0] ERROR c.netflix.discovery.DiscoveryClient - DiscoveryClient_CUSTOMER-SERVICE/DESKTOP-NO1L5GP:customer-service:9002 - was unable to send heartbeat!
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:837)
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1401)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024-10-01 21:47:00 [SpringApplicationShutdownHook] ERROR c.netflix.discovery.DiscoveryClient - DiscoveryClient_CUSTOMER-SERVICE/DESKTOP-NO1L5GP:customer-service:9002 - de-registration failedCannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:916)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:892)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1202)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1195)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1183)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1144)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1090)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:145)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:114)
+	at java.base/java.lang.Thread.run(Thread.java:840)
