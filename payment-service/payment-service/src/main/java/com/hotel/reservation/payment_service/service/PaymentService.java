@@ -19,6 +19,7 @@ public class PaymentService {
     private final PaymentRepository paymentRepository;
 
     public Payment pay(Payment payment) {
+        log.debug("Processing payment : {}", payment);
         payment.setPaymentType(PaymentType.PAY);
         payment.setPaymentStatus(PaymentStatus.FAILED);
         if (isSuccessful()) {
@@ -26,11 +27,13 @@ public class PaymentService {
         } else {
             payment.setPaymentStatus(PaymentStatus.FAILED);
         }
+        log.debug("Payment status : {}", payment.getPaymentStatus());
         return paymentRepository.save(payment);
     }
 
 
     public Payment refund(Long paymentId) throws NoDataFoundException {
+        log.debug("Refund payment : {}", paymentId);
         Payment payment = paymentRepository.getReferenceById(paymentId);
         if (payment != null) {
             payment.setPaymentType(PaymentType.REFUND);

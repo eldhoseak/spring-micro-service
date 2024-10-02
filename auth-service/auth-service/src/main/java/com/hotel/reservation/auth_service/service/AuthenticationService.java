@@ -3,7 +3,6 @@ package com.hotel.reservation.auth_service.service;
 import com.google.gson.Gson;
 import com.hotel.reservation.auth_service.entity.Customer;
 import com.hotel.reservation.auth_service.model.NotificationContext;
-import com.hotel.reservation.auth_service.repository.CustomerRepository;
 import com.hotel.reservation.auth_service.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -32,7 +31,7 @@ public class AuthenticationService {
     private KafkaService kafkaService;
 
     @Autowired
-    private CustomerRepository customerRepository;
+    private CustomerService customerService;
 
     public String authenticate(String email, String password) throws Exception {
         try {
@@ -44,16 +43,8 @@ public class AuthenticationService {
         return jwtUtil.generateToken(email);
     }
 
-
-    public Customer save1(Customer customer) {
-        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
-        customer = customerRepository.save(customer);
-        sendRegistrationNotification(customer);
-        return customer;
-    }
-
     public Customer findByEmail(String email) {
-        return customerRepository.findByEmail(email);
+        return customerService.getCustomerDetails(email).block();
     }
 
     public void sendRegistrationNotification(Customer customer) {
@@ -61,7 +52,7 @@ public class AuthenticationService {
 
         String confirmationMessageTemplate = "Thanks %s for choosing us as your comfort partner.\n" +
                 "You have successfully registered!!" +
-                "-Great Comfort Hotels\n";
+                "-Stay Well Hotels\n";
 
         String confirmationMessage = String.format(confirmationMessageTemplate,
                 customer.getFirstName() + " " + customer.getLastName()
@@ -81,6 +72,8 @@ public class AuthenticationService {
     }
 
     public Customer save(Customer customer) {
-        return customerRepository.save(customer);
+        customer =  customerService.saveCustomer(customer).block();
+        sendRegistrationNotification (customer);
+        return customer;
     }
 }

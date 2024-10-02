@@ -1,7 +1,8 @@
 package com.hotel.reservation.auth_service.security;
 
 import com.hotel.reservation.auth_service.entity.Customer;
-import com.hotel.reservation.auth_service.repository.CustomerRepository;
+
+import com.hotel.reservation.auth_service.service.CustomerService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -21,7 +22,7 @@ import java.util.function.Function;
 public class JwtUtil {
 
     @Autowired
-    private CustomerRepository customerRepository;
+    private CustomerService customerService;
 
     private final String SECRET_KEY = "2132132143545221321321435452132132143545645765132132143545645765";
 
@@ -48,7 +49,7 @@ public class JwtUtil {
     }
 
     public String generateToken(String username) {
-        Customer customer = customerRepository.findByEmail(username);
+        Customer customer = customerService.getCustomerDetails(username).block();
 
         Map<String, Object> claims = new HashMap<>();
         claims.put("name", customer.getFirstName());

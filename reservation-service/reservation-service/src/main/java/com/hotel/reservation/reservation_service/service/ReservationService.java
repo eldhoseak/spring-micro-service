@@ -5,6 +5,7 @@ import com.hotel.reservation.reservation_service.entity.Reservation;
 import com.hotel.reservation.reservation_service.exception.NoDataFoundException;
 import com.hotel.reservation.reservation_service.model.*;
 import com.hotel.reservation.reservation_service.repository.ReservationRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 
@@ -14,6 +15,7 @@ import java.util.*;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ReservationService {
     private final ReservationRepository reservationRepository;
     private final HotelService hotelService;
@@ -23,7 +25,9 @@ public class ReservationService {
     private final ReservationSagaOrchestrator sagaOrchestrator;
 
     public Reservation makeReservation(Reservation reservation) throws Exception {
+        log.debug("Make reservation - before Saga start");
         sagaOrchestrator.initiateReservationSaga(this, reservation);
+        log.debug("Make reservation - after Saga end");
         return reservation;
     }
 
@@ -78,8 +82,7 @@ public class ReservationService {
         NotificationContext nc = new NotificationContext();
         String confirmationMessageTemplate = "Thanks for choosing us as your comfort partner.\n" +
                 "Your booking for room no %s is confirmed starting %s and ending %s.\n" +
-                "Why don’t you follow us on [social media] as well?\n" +
-                "-Great Comfort Hotels\n";
+                "-Well Stay Hotels\n";
 
         String confirmationMessage = String.format(confirmationMessageTemplate,
                 reservation.getRoomId(),
@@ -118,7 +121,7 @@ public class ReservationService {
         }
 
         NotificationContext nc = new NotificationContext();
-        String body = String.format("Your booking ref %s has been cancelled and payment refund initiated with ref %s. Wish to see you soon again!\n-Great Comfort Hotels",
+        String body = String.format("Your booking ref %s has been cancelled and payment refund initiated with ref %s. Wish to see you soon again!\n-Well Stay Hotels",
                 reservation.getReservationId(), reservation.getPaymentId());
         nc.setBody(body);
         nc.setType("email");
